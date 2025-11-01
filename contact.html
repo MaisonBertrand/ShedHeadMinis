@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | ShedHeadMinis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contact-container">
+        <!-- Header -->
+        <header class="contact-header">
+            <a href="index.html" class="back-link">← BACK</a>
+            <h1 class="contact-title">CONTACT ME</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main class="contact-main">
+            <section class="contact-form-section">
+                <form id="contactForm" action="https://formsubmit.co/maison.b99@gmail.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Contact Form Submission">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://maisonbertrand.github.io/ShedHeadMinis/thank-you.html">
+                    
+                    <!-- Name Field -->
+                    <div class="form-group">
+                        <label for="name">NAME <span class="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            minlength="2"
+                            placeholder="Your full name"
+                        >
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email">EMAIL <span class="required">*</span></label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required
+                            placeholder="your.email@example.com"
+                        >
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <!-- Message Field -->
+                    <div class="form-group">
+                        <label for="message">MESSAGE <span class="required">*</span></label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            required 
+                            minlength="10"
+                            rows="6"
+                            placeholder="Your message here..."
+                        ></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="contact-footer">
+            <p>&copy; <span id="currentYear"></span> ShedHeadMinis. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Form validation and submission handling
+        const form = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+
+        // Real-time validation
+        nameInput.addEventListener('blur', function() {
+            validateName();
+        });
+
+        emailInput.addEventListener('blur', function() {
+            validateEmail();
+        });
+
+        messageInput.addEventListener('blur', function() {
+            validateMessage();
+        });
+
+        function validateName() {
+            const nameError = document.getElementById('nameError');
+            if (nameInput.value.trim().length < 2) {
+                nameError.textContent = 'Name must be at least 2 characters';
+                nameInput.classList.add('error');
+                return false;
+            } else {
+                nameError.textContent = '';
+                nameInput.classList.remove('error');
+                return true;
+            }
+        }
+
+        function validateEmail() {
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput.value)) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailInput.classList.add('error');
+                return false;
+            } else {
+                emailError.textContent = '';
+                emailInput.classList.remove('error');
+                return true;
+            }
+        }
+
+        function validateMessage() {
+            const messageError = document.getElementById('messageError');
+            if (messageInput.value.trim().length < 10) {
+                messageError.textContent = 'Message must be at least 10 characters';
+                messageInput.classList.add('error');
+                return false;
+            } else {
+                messageError.textContent = '';
+                messageInput.classList.remove('error');
+                return true;
+            }
+        }
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const isNameValid = validateName();
+            const isEmailValid = validateEmail();
+            const isMessageValid = validateMessage();
+
+            if (isNameValid && isEmailValid && isMessageValid) {
+                // Show loading state
+                const submitBtn = form.querySelector('.submit-btn');
+                submitBtn.textContent = 'SENDING...';
+                submitBtn.disabled = true;
+
+                // Submit the form
+                form.submit();
+            }
+        });
+    </script>
+</body>
+</html>
+

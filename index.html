@@ -3,178 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Welcome</title>
+    <title>ShedHeadMinis | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header Section - Replace "Your Name" or "Your Brand" with your actual name/brand -->
-        <header>
-            <h1 class="brand">Your Name</h1>
-            <!-- Or use an image logo instead:
-            <img src="logo.png" alt="Your Brand" class="brand-logo">
-            -->
+    <div class="portfolio-container">
+        <!-- Header -->
+        <header class="portfolio-header">
+            <h1 class="portfolio-title">SHEDHEADMINIS</h1>
+            <p class="portfolio-subtitle">MINIATURE CRAFTSMANSHIP</p>
         </header>
 
-        <!-- Main Content -->
-        <main>
-            <!-- Introduction Section - Customize the paragraph below -->
-            <section class="intro">
-                <p>
-                    Hello! I'm a passionate developer (or customize this to describe yourself) 
-                    who loves creating beautiful and functional web experiences. Welcome to my 
-                    personal space where I share my work and connect with like-minded individuals.
-                </p>
-            </section>
-
-            <!-- Contact Form Section -->
-            <section class="contact-section">
-                <h2>Get in Touch</h2>
-                <form id="contactForm" action="https://formsubmit.co/maison.b99@gmail.com" method="POST">
-                    <!-- FormSubmit Configuration -->
-                    <!-- IMPORTANT: Replace YOUR_EMAIL@example.com above with your actual email address -->
-                    
-                    <!-- Hidden fields for FormSubmit -->
-                    <input type="hidden" name="_subject" value="New Contact Form Submission">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://maisonbertrand.github.io/ShedHeadMinis/thank-you.html">
-                    <!-- IMPORTANT: Replace the _next URL above with your GitHub Pages URL -->
-                    
-                    <!-- Name Field -->
-                    <div class="form-group">
-                        <label for="name">Name <span class="required">*</span></label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            required 
-                            minlength="2"
-                            placeholder="Your full name"
-                        >
-                        <span class="error-message" id="nameError"></span>
+        <!-- Portfolio Gallery -->
+        <main class="portfolio-main">
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be dynamically loaded or manually added -->
+                <!-- Example placeholder items - replace image sources with your actual images -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://via.placeholder.com/600x600/1a1a1a/666666?text=Project+1" alt="Portfolio Item 1" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Project 1</span>
+                        </div>
                     </div>
-
-                    <!-- Email Field -->
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            required
-                            placeholder="your.email@example.com"
-                        >
-                        <span class="error-message" id="emailError"></span>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://via.placeholder.com/600x600/2a2a2a/777777?text=Project+2" alt="Portfolio Item 2" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Project 2</span>
+                        </div>
                     </div>
-
-                    <!-- Message Field -->
-                    <div class="form-group">
-                        <label for="message">Message <span class="required">*</span></label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            required 
-                            minlength="10"
-                            rows="6"
-                            placeholder="Your message here..."
-                        ></textarea>
-                        <span class="error-message" id="messageError"></span>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://via.placeholder.com/600x600/3a3a3a/888888?text=Project+3" alt="Portfolio Item 3" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Project 3</span>
+                        </div>
                     </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </section>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://via.placeholder.com/600x600/1a1a1a/666666?text=Project+4" alt="Portfolio Item 4" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Project 4</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://via.placeholder.com/600x600/2a2a2a/777777?text=Project+5" alt="Portfolio Item 5" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Project 5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://via.placeholder.com/600x600/3a3a3a/888888?text=Project+6" alt="Portfolio Item 6" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Project 6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
+        <!-- Contact Button Section -->
+        <section class="contact-section">
+            <a href="contact.html" class="contact-btn">CONTACT ME</a>
+        </section>
+
         <!-- Footer -->
-        <footer>
-            <p>&copy; <span id="currentYear"></span> Your Name. All rights reserved.</p>
+        <footer class="portfolio-footer">
+            <p>&copy; <span id="currentYear"></span> ShedHeadMinis. All rights reserved.</p>
         </footer>
     </div>
 
     <script>
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Add subtle animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // Form validation and submission handling
-        const form = document.getElementById('contactForm');
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-        // Real-time validation
-        nameInput.addEventListener('blur', function() {
-            validateName();
-        });
-
-        emailInput.addEventListener('blur', function() {
-            validateEmail();
-        });
-
-        messageInput.addEventListener('blur', function() {
-            validateMessage();
-        });
-
-        function validateName() {
-            const nameError = document.getElementById('nameError');
-            if (nameInput.value.trim().length < 2) {
-                nameError.textContent = 'Name must be at least 2 characters';
-                nameInput.classList.add('error');
-                return false;
-            } else {
-                nameError.textContent = '';
-                nameInput.classList.remove('error');
-                return true;
-            }
-        }
-
-        function validateEmail() {
-            const emailError = document.getElementById('emailError');
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(emailInput.value)) {
-                emailError.textContent = 'Please enter a valid email address';
-                emailInput.classList.add('error');
-                return false;
-            } else {
-                emailError.textContent = '';
-                emailInput.classList.remove('error');
-                return true;
-            }
-        }
-
-        function validateMessage() {
-            const messageError = document.getElementById('messageError');
-            if (messageInput.value.trim().length < 10) {
-                messageError.textContent = 'Message must be at least 10 characters';
-                messageInput.classList.add('error');
-                return false;
-            } else {
-                messageError.textContent = '';
-                messageInput.classList.remove('error');
-                return true;
-            }
-        }
-
-        // Form submission
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const isNameValid = validateName();
-            const isEmailValid = validateEmail();
-            const isMessageValid = validateMessage();
-
-            if (isNameValid && isEmailValid && isMessageValid) {
-                // Show loading state
-                const submitBtn = form.querySelector('.submit-btn');
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-
-                // Submit the form
-                form.submit();
-            }
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            observer.observe(item);
         });
     </script>
 </body>
 </html>
-
