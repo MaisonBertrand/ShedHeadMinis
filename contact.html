@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | ShedHeadMinis</title>
+    <link rel="icon" type="image/png" href="images/Untitled_Artworkt.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="contact-container">
         <!-- Header -->
         <header class="contact-header">
-            <a href="index.html" class="back-link">← BACK</a>
+            <div class="logo-container">
+                <a href="index.html"><img src="images/Untitled_Artworkt.png" alt="ShedHeadMinis Logo" class="site-logo"></a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">PORTFOLIO</a>
+                <a href="lessons.html">LESSONS</a>
+                <a href="about-business.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
             <h1 class="contact-title">CONTACT ME</h1>
         </header>
 
@@ -22,6 +31,9 @@
                     <input type="hidden" name="_subject" value="New Contact Form Submission">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://maisonbertrand.github.io/ShedHeadMinis/thank-you.html">
+                    
+                    <!-- Lesson Type Field (hidden) -->
+                    <input type="hidden" id="lessonType" name="lesson_type" value="">
                     
                     <!-- Name Field -->
                     <div class="form-group">
@@ -73,6 +85,9 @@
         <!-- Footer -->
         <footer class="contact-footer">
             <p>&copy; <span id="currentYear"></span> ShedHeadMinis. All rights reserved.</p>
+            <p class="footer-social">
+                <a href="https://instagram.com/shedheadminis" target="_blank" rel="noopener noreferrer" class="social-link">VIEW MORE ON INSTAGRAM</a>
+            </p>
         </footer>
     </div>
 
@@ -80,11 +95,29 @@
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+        // Check URL parameters for lesson type
+        const urlParams = new URLSearchParams(window.location.search);
+        const lessonType = urlParams.get('type');
+        const lessonTypeField = document.getElementById('lessonType');
+        const messageInput = document.getElementById('message');
+        
+        if (lessonType) {
+            lessonTypeField.value = lessonType;
+            // Update form subject based on lesson type
+            const subjectInput = document.querySelector('input[name="_subject"]');
+            if (lessonType === 'online') {
+                subjectInput.value = 'Online Painting Lesson Inquiry';
+                messageInput.placeholder = 'Please include your preferred dates/times, experience level, and any specific topics you\'d like to cover...';
+            } else if (lessonType === 'inperson') {
+                subjectInput.value = 'In-Person Painting Lesson Inquiry';
+                messageInput.placeholder = 'Please include your location, preferred dates/times, and travel arrangements...';
+            }
+        }
+
         // Form validation and submission handling
         const form = document.getElementById('contactForm');
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
 
         // Real-time validation
         nameInput.addEventListener('blur', function() {

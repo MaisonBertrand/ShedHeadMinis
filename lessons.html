@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painting Lessons | ShedHeadMinis</title>
+    <link rel="icon" type="image/png" href="images/Untitled_Artworkt.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contact-container">
+        <!-- Header -->
+        <header class="contact-header">
+            <div class="logo-container">
+                <a href="index.html"><img src="images/Untitled_Artworkt.png" alt="ShedHeadMinis Logo" class="site-logo"></a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">PORTFOLIO</a>
+                <a href="lessons.html">LESSONS</a>
+                <a href="about-business.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+            <h1 class="contact-title">PAINTING LESSONS</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main class="lessons-main">
+            <section class="lessons-intro">
+                <p class="lessons-intro-text">
+                    Learn from someone with over two decades of experience. Choose between online or in-person lessons tailored to your skill level and schedule.
+                </p>
+            </section>
+
+            <div class="lessons-grid">
+                <!-- Online Lessons -->
+                <div class="lesson-card">
+                    <div class="lesson-card-header">
+                        <h2 class="lesson-type">ONLINE LESSONS</h2>
+                        <div class="lesson-price">$20<span class="price-unit">/hour</span></div>
+                    </div>
+                    <div class="lesson-card-content">
+                        <p class="lesson-description">
+                            These lessons will be done over Discord video call. You can paint along with me, ask me questions, and get direction from someone who has been painting for two decades. We will evaluate where your current level is at and I can either start teaching or you can move it at your own pace.
+                        </p>
+                        <ul class="lesson-features">
+                            <li>Discord video call sessions</li>
+                            <li>Screen recording encouraged</li>
+                            <li>Personalized skill assessment</li>
+                            <li>Flexible pace learning</li>
+                        </ul>
+                        <a href="contact.html?type=online" class="lesson-btn">BOOK ONLINE LESSON</a>
+                    </div>
+                </div>
+
+                <!-- In-Person Lessons -->
+                <div class="lesson-card">
+                    <div class="lesson-card-header">
+                        <h2 class="lesson-type">IN-PERSON LESSONS</h2>
+                        <div class="lesson-price">$25<span class="price-unit">/hour</span></div>
+                    </div>
+                    <div class="lesson-card-content">
+                        <p class="lesson-description">
+                            These lessons will be done in person. Client covers travel expenses and I will come to you or meet you at my LGS in Allen, Texas. I am willing to drive up to 200 miles or take a flight covered by the client.
+                        </p>
+                        <ul class="lesson-features">
+                            <li>One-on-one in-person instruction</li>
+                            <li>Meet at your location or my LGS in Allen, TX</li>
+                            <li>Up to 200 miles travel included</li>
+                            <li>Flight options available (client covers expenses)</li>
+                            <li>Screen recording encouraged</li>
+                        </ul>
+                        <a href="contact.html?type=inperson" class="lesson-btn">BOOK IN-PERSON LESSON</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="contact-footer">
+            <p>&copy; <span id="currentYear"></span> ShedHeadMinis. All rights reserved.</p>
+            <p class="footer-social">
+                <a href="https://instagram.com/shedheadminis" target="_blank" rel="noopener noreferrer" class="social-link">VIEW MORE ON INSTAGRAM</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

@@ -79,6 +79,72 @@ body {
     position: relative;
 }
 
+.title-with-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.title-container {
+    flex: 0 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.logo-left,
+.logo-right {
+    transition: transform 0.3s ease;
+}
+
+.logo-container a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.logo-container a:hover {
+    transform: scale(1.05);
+}
+
+.site-logo {
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) contrast(1.2);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect - when one logo is hovered, both light up */
+.title-with-logos:hover .site-logo,
+.logo-left:hover ~ .title-container ~ .logo-right .site-logo,
+.logo-right:hover ~ .title-container .site-logo,
+.logo-left:hover .site-logo {
+    filter: grayscale(70%) contrast(1.3);
+    opacity: 1;
+}
+
+/* Alternative approach - use group hover */
+.logo-left:hover ~ .title-container ~ .logo-right .site-logo {
+    filter: grayscale(70%) contrast(1.3);
+    opacity: 1;
+}
+
+.logo-right:hover ~ .site-logo,
+.title-with-logos:hover .site-logo {
+    filter: grayscale(70%) contrast(1.3);
+    opacity: 1;
+}
+
 .portfolio-header::after {
     content: '';
     position: absolute;
@@ -107,6 +173,90 @@ body {
     color: var(--text-muted);
     text-transform: uppercase;
     font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* Navigation Styles */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-nav a:hover {
+    color: var(--text-primary);
+    border-color: var(--border);
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--border);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.main-nav a:hover::after {
+    width: 80%;
+}
+
+/* About the Artist Section */
+.about-artist {
+    padding: 60px 40px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.artist-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.artist-bio {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .portfolio-main {
@@ -284,6 +434,15 @@ body {
     position: relative;
 }
 
+.contact-header .logo-container {
+    margin-bottom: 20px;
+}
+
+.contact-header .site-logo {
+    max-width: 100px;
+    max-height: 100px;
+}
+
 .contact-header::after {
     content: '';
     position: absolute;
@@ -457,6 +616,203 @@ body {
     letter-spacing: 1px;
 }
 
+.footer-social {
+    margin-top: 15px;
+}
+
+.social-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+.social-link:hover {
+    color: var(--text-primary);
+}
+
+/* ============================================
+   About Business Page Styles
+   ============================================ */
+
+.about-business-section {
+    padding: 60px 40px;
+}
+
+.about-business-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-tertiary);
+    padding: 50px 40px;
+    border: 2px solid var(--border-dark);
+    box-shadow: var(--shadow);
+}
+
+.business-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    text-align: justify;
+}
+
+/* ============================================
+   Lessons Page Styles
+   ============================================ */
+
+.lessons-main {
+    padding: 60px 40px;
+    background: var(--bg-secondary);
+}
+
+.lessons-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lessons-intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lesson-card {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-dark);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border);
+}
+
+.lesson-card-header {
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid var(--border-dark);
+    text-align: center;
+}
+
+.lesson-type {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.lesson-price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+}
+
+.price-unit {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-left: 5px;
+}
+
+.lesson-card-content {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.lesson-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+}
+
+.lesson-features {
+    list-style: none;
+    margin-bottom: 30px;
+    flex: 1;
+}
+
+.lesson-features li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.lesson-features li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.lesson-btn {
+    display: block;
+    text-align: center;
+    padding: 16px 30px;
+    background: transparent;
+    color: var(--text-primary);
+    text-decoration: none;
+    border: 2px solid var(--border);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+.lesson-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--grey-50);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.lesson-btn:hover::before {
+    left: 0;
+}
+
+.lesson-btn:hover {
+    color: var(--bg-primary);
+    border-color: var(--grey-60);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+}
+
 /* ============================================
    Thank You Page Styles
    ============================================ */
@@ -563,6 +919,30 @@ body {
         letter-spacing: 2px;
     }
 
+    .main-nav {
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .main-nav a {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    .site-logo {
+        max-width: 80px !important;
+        max-height: 80px !important;
+    }
+
+    .contact-header .site-logo {
+        max-width: 70px !important;
+        max-height: 70px !important;
+    }
+
+    .about-artist {
+        padding: 40px 20px;
+    }
+
     .portfolio-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -593,6 +973,23 @@ body {
     }
 
     .contact-form-section {
+        padding: 30px 20px;
+    }
+
+    .lessons-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .lessons-main {
+        padding: 40px 20px;
+    }
+
+    .about-business-section {
+        padding: 40px 20px;
+    }
+
+    .about-business-content {
         padding: 30px 20px;
     }
 
